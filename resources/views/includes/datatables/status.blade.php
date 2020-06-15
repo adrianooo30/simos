@@ -1,0 +1,1 @@
+<button id="stat-badge{{ $id }}" class="status-btn {{ $status }} waves-effect wave-light">{{ $status }}</button>

@@ -1,0 +1,337 @@
+.lighter{
+	font-weight: lighter !important;
+}
+
+.card-shadow{
+	box-shadow: 0px 4px 10px #c8c8c8;
+}
+
+
+.image-200{
+	height: 200px;
+	width: 200px;
+	object-fit: cover;
+	object-position: center;
+}
+
+.image-150{
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.image-100{
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.image-50{
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.size-50{
+  width: 50%;
+}
+
+.--loading{
+  margin:100px 0;
+  font-size:2em;
+  text-align: center;
+  color: #ddd;
+}
+
+
+.image-fit{
+  object-fit: cover;
+  object-position: center;
+}
+
+.font-50{
+  font-size: 50px;
+}
+
+.font-42{
+  font-size: 42px;
+}
+
+.bg-light-blue{
+  background-color: #dbefff;
+}
+
+/*button - in creating of order*/
+@keyframes pulse {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  33% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+.button {
+	margin:10px auto;
+	display: inline-flex;
+	align-items: center;
+	background: linear-gradient(45deg, #2196f3, #ffa6a6);
+	box-shadow: 0 3px 2px 0 rgba(0,0,0,0.1);
+	border-radius: 5px;
+	height: 40px;
+	padding: 0 30px;
+	color: #fff;
+	font-family: Lato, Arial, sans-serif;
+	text-decoration: none;
+	transition: background .2s, transform .2s, box-shadow .2s;
+	will-change: transform;
+	border: none;
+	cursor: pointer;
+}
+  
+  .button:hover {
+    background: darken(#C06C84,10%);
+    box-shadow: 0 4px 17px rgba(0,0,0,0.2);
+    transform: translate3d(0, -2px, 0);
+  }
+  .button:active {
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1);
+    transform: translate3d(0, 2px, 0);
+  }
+
+.pulse {
+  position: relative;
+}
+  
+  .pulse:before, .pulse:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255,255,255,.4);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    opacity: 0;
+    margin: auto;
+  }
+  .pulse:before {
+    animation: pulse 1.5s infinite linear;
+  }
+  .pulse:after {
+    animation: pulse 2s .4s infinite linear;
+  }
+  .pulse:hover:before, .pulse:hover:after {
+    display: none;
+  }
+
+/*end of button - for creation of order*/
+
+/* for status design button */
+.stat-opt.active{
+  display: block;
+}
+.stat-opt{
+  display: none;
+  position: absolute;
+  transform:translate(-40px, -80px);
+  height:130px;
+  width:130px;
+  box-shadow: 0 0 10px #c7c7c7;
+  border-radius: 130px;
+  z-index: 100; /* to shine in others */
+  background: #fff;
+}
+  .stat-opt .option{
+    position:absolute;
+    height:60px;
+    width:60px;
+    box-shadow: 0 0 10px #b6b6b6;
+    border-radius:60px;
+    border:none;
+    outline: none;
+    transition:0.2s;
+  }
+  .stat-opt .option:active{
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+  }
+  .stat-opt .option.approve{
+    top:0;
+    left:0;
+    background:#d8ffe0;
+    color:#439024;
+  }
+  .stat-opt .option.cancel{
+    top:0;
+    right:0;
+    background:#ffe5ee;
+    color:#ff4a62;
+  }
+  .stat-opt .option.pending{
+    bottom:0;
+    left:0;
+    background:#faf7dd;
+    color:#4f4919;
+  }
+  .stat-opt .option.deliver{
+    bottom:0;
+    right:0;
+    background:#dbdeff;
+    color:#4aafff;
+  }
+/* end of forstatus design button */
+
+
+/*status button design*/
+.status-btn{
+  height:40px;
+  min-width:100px;
+  border:none;
+  border-radius: 50px;
+  font-weight: bold;
+  outline:none !important;
+  border:2px solid #fff;
+}
+
+ .border-Pending{
+  border: 2px solid #4f4919;
+}
+
+.status-btn.status-btn-warning, /*for back end process - sales status style button*/
+.status-btn.Pending{
+  color:#4f4919;
+  background:#faf7dd;
+}
+
+.border-Approved{
+  border: 2px solid #439024;
+}
+
+.status-btn.Approved{
+  color:#439024;
+  background:#d8ffe0;
+}
+
+.border-Delivered,
+.border-Paid,
+.border-Fully{
+  border: 2px solid #4aafff;
+}
+
+.status-btn.status-btn-primary, /*for back end process - sales status style button*/
+.status-btn.Delivered,
+.status-btn.Paid,
+.status-btn.Fully{
+  color:#4aafff;
+  background:#dbdeff;
+}
+
+.border-Canceled,
+.border-Not{
+  border: 2px solid #ff4a62;
+}
+
+.status-btn.status-btn-danger, /*for back end process - sales status style button*/
+.status-btn.Canceled,
+.status-btn.Not{
+  color:#ff4a62;
+  background:#ffe5ee;
+}
+
+.border-Partially{
+  border: 2px solid #6b5f00;
+}
+
+.status-btn.Partially{
+    color: #6b5f00;
+    background: #ffc10780;
+}
+
+/*end of status button design*/
+
+div.dataTables_wrapper div.dataTables_processing {
+    box-shadow: 0 2px 10px #949494;
+    border: 1px solid #a9a9a9;
+}
+
+.clickable-alert{
+  cursor: pointer;
+  transition: 0.5s;
+}
+.clickable-alert:active{
+  opacity: 0.8;
+  transform: scale(0.9);
+}
+
+
+.c-pointer{
+  cursor: pointer;
+}
+
+/*circle  loading design*/
+.flex-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.single-chart {
+  width: 50%;
+  justify-content: space-around ;
+}
+
+.circular-chart {
+  display: block;
+  margin: 10px auto;
+  max-width: 80%;
+  max-height: 250px;
+}
+
+.circle-bg {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 3.8;
+}
+
+.circle {
+  fill: none;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  animation: progress 1s ease-out forwards;
+}
+
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0 100;
+  }
+}
+
+.circular-chart.orange .circle {
+  stroke: #ff9f00;
+}
+
+.circular-chart.green .circle {
+  stroke: #4CC790;
+}
+
+.circular-chart.blue .circle {
+  stroke: #3c9ee5;
+}
+
+.percentage {
+  /*fill: #666;*/
+  font-family: sans-serif;
+  font-size: 0.5em;
+  text-anchor: middle;
+}
+/*end of circle loading design*/

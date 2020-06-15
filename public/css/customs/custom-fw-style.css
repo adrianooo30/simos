@@ -1,0 +1,46 @@
+.alert-danger.active
+{
+	box-shadow: 0 0 0 5px #ff001700;
+	animation: inhale 1s;
+	animation-iteration-count: 1;
+}
+
+@keyframes inhale
+{
+	from
+	{
+		box-shadow: 0 0 0 5px #ff001700;
+	}
+	50%
+	{
+		box-shadow: 0 0 0 5px #ff001757;
+	}
+	to
+	{
+		box-shadow: 0 0 0 5px #ff001700;
+	}
+}
+
+
+/*actually this is only for my purpose of cleaning code*/
+
+.white-bg
+{
+	background: #fff;
+}
+
+.image
+{
+	border-radius: 50%;
+}
+
+.img-lg
+{
+	height: 150px;
+	width: 150px;
+}
+
+.p-lg
+{
+	padding:40px 20px;
+}

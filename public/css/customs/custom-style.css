@@ -1,0 +1,123 @@
+.image-100
+{
+	height: 100px !important;
+	width: 100px !important;
+	border-radius: 100px;
+}
+.image-50
+{
+	height: 50px !important;
+	width: 50px !important;
+	border-radius: 50px;
+}
+
+.b-r-half
+{
+	border-radius: 50%;
+}
+
+.d-display-img
+{
+	height: 50px;
+	width: 50px;
+	border-radius: 50px;
+	object-fit: cover;
+	object-position: center;
+}
+
+.noti-border-red
+{
+	box-shadow: 0 0 0 5px #ffc0c0;
+	border-radius: 10px;
+}
+
+.noti-border-orange
+{
+	box-shadow: 0 0 0 5px orange;
+	border-radius: 10px;
+}
+
+img.in-danger
+{
+	filter: grayscale(100);
+}
+
+/*notification style*/
+
+#noti-card
+{
+	display: none;
+	position: absolute;
+	z-index: 1;
+	top: 90px;
+	right: 60px;
+	min-height: 100px;
+	max-height: 420px;
+	width: 350px;
+	border-radius: 10px;
+	box-shadow: 0 0 0 1px #b6b6b6;
+}
+	#noti-card .card-body
+	{
+		min-height: 50px;
+		max-height: 300px;
+		overflow: auto;
+	}
+
+#noti-card:before
+{
+	content: '';
+	position: absolute;
+	z-index: -1;
+	right: 40px;
+	top: -13px;
+	height: 25px;
+	width: 25px;
+	background: #ffffff;
+	transform: rotate(45deg);
+	border-top: 1px solid #b6b6b6;
+	border-left: 1px solid #b6b6b6;
+}
+
+.font-20
+{
+	font-size:20px;
+}
+.font-14
+{
+	font-size:14px;
+}
+.font-12
+{
+	font-size:12px;
+}
+
+.font-10
+{
+	font-size:10px;
+}
+
+/*end of notification style*/
+
+/*in notification alert*/
+.border-3
+{
+	border-width: 3px;
+}
+
+.unread
+{
+	
+}
+
+.read
+{
+	background: none;
+}
+
+/* end of in notification alert*/
+
+.bolder
+{
+	font-weight: bolder;
+}

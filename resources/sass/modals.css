@@ -1,0 +1,880 @@
+*{
+	--width: 40px;
+
+}
+i.ti-calendar.i-date-added{
+	color:#00b0f1;
+}
+i.ti-calendar.i-date-expiry{
+	color:#f44336;
+}
+
+/*design for editing or logout of the user*/
+.account-profile{
+	display:none;
+	position: absolute;
+	top:90px;
+	right:10px;
+	min-height:150px;
+	min-width:300px;
+	background:#fff;
+	box-shadow: 0 0 10px #ddd;
+	z-index: 100;
+	animation:top 0.2s ease-in-out;
+}
+
+input, select, label:not(.choose-file):not(.imp), textarea{
+	color:#000 !important;
+}
+
+@keyframes top{
+	from{
+		opacity: 0;
+		top:100px;
+	}
+	70%{
+		top:80px;
+	}
+	to{
+		opacity: 1;
+		top:90px;
+	}
+}
+.account-profile.active{
+	display: block;
+}
+#user-name ~ i.ti-angle-down.active{
+	transform:rotate(180deg);
+	border:1px solid #5cbcf2;
+}
+	.account-info{
+		width:100%;
+		height: 150px;
+		display: flex;
+		padding:20px;
+		box-sizing: border-box;
+	}
+		.account-info img{
+			height:100px;
+			width:100px;
+		}
+		.account-info .name-and-pos{
+			flex:1;
+			padding:10px;
+			box-sizing: border-box;
+		}	
+			.name-and-pos{
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+			.name-and-pos h3, .name-and-pos h4{
+				margin:0;
+				line-height: initial;
+			}
+			.name-and-pos h3{
+				font-size: 16px;
+			}
+			.name-and-pos h4{
+				font-size:14px;
+				font-weight: lighter;
+			}
+	.account-footer{
+		height:80px;
+		width:100%;
+		/*background:hsl(0, 0%, 97%);*/
+		background:#eee;
+		text-align: center;
+		display:flex;
+		justify-content: space-around;
+		align-items:center;
+	}	
+		.edit-acc-btn, .logout-btn{
+			height:50px;
+			width:130px;
+			background:#fff;
+			cursor:pointer;
+			border-radius: 50px;
+			outline:none;
+			color:#75798B;
+			transition: 0.2s;
+		}
+		.edit-acc-btn{
+			border:2px solid lightblue;
+		}
+			.edit-acc-btn i{
+				color:lightblue;
+			}
+		.logout-btn{
+			border:2px solid #ffaaaa;
+		}
+			.logout-btn i{
+				color:#ffaaaa;
+			}
+		.edit-acc-btn:active{
+			background:#cff3ff;
+		}
+		.logout-btn:active{
+			background:#ffdcdc;
+		}
+/* end of design for editing or logout of the user*/
+
+
+.--loading{
+	margin:100px 0;
+	font-size:2em;
+	text-align: center;
+	color: #ddd;
+}
+/*this is the udpated modal*/
+.parent-modal{
+	display:none;
+	position:fixed;
+	top:0;
+	left:0;
+	height:100vh;
+	width:100%;
+	overflow: auto;
+}
+.parent-modal.active{
+	display: block;
+}
+	.bg-for-modal{
+		background:rgba(0,0,0,0.4);
+		position: fixed;
+		top:0;
+		left:0;
+		right:0;
+		bottom:0;
+	}
+	.modal-box{
+		transform:translateY(50px);
+		margin:0 auto;
+		min-height: 500px;
+		width:900px;
+		background:#fff;
+		padding:40px;
+		box-sizing: border-box;
+		margin-bottom:40px;
+	}
+	.modal-box.no-transform{
+		transform: translateY(0);
+	}
+	.modal-box.user-modal{
+		width:700px;
+	}
+	.modal-box.user-modal .tab .image {
+	    width: 100%;
+	}
+	.modal-box.user-modal .edit{
+	    width: 100%;
+	}
+	.modal-box.user-modal .tab.active{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.modal-box.full-width{
+		width: 100%;
+	}
+	/*.modal-box.modal-product-settings{
+		width:900px;
+	}
+	.modal-box.add-emp-modal,
+	.modal-box.edit-emp-modal{
+		width:830px;
+	}
+	.modal-box.modal-box-product,
+	.modal-box.modal-price-settings,
+	.modal-box.edit-supplier-modal-box{
+		width:910px;
+	}*/
+
+		.modal-box{
+			animation:animate 0.4s ease-in-out;
+		}
+		.modal-box.out{
+			animation:animateOut 0.4s ease-in-out forwards;
+		}
+		@keyframes animate{
+			from{
+				transform:translateY(0);
+				opacity: 0;
+			}
+			80%{
+				transform:translateY(70px);
+			}
+			to{
+				transform:translateY(50px);
+				opacity: 1;
+			}
+		}
+		@keyframes animateOut{
+			from{
+				transform:translateY(50px);
+				opacity: 1;
+			}
+			to{
+				transform:translateY(0);
+				opacity: 0;
+			}
+		}
+
+	.modal-box.edit-batch-modal{
+		width:600px;
+	}
+	/*.modal-box.collection-modal{
+		width:800px;
+	}*/
+	/*.modal-box.add-account-modal,
+	.modal-box.edit-account-modal,
+	.modal-box.add-emp-modal,
+	.modal-box.edit-emp-modal,
+	.modal-box.order-view-modal{
+		width:880px;
+	}
+	.modal-box.add-supplier-modal{
+		width:890px;
+	}*/
+	.modal-box.loading-modal{
+		width: 440px;
+		background:transparent;
+	}
+		.modal-box.loading-modal h1{
+			color:#fff;
+			font-size:2em;
+			text-align: center;
+		}
+		.modal-box.loading-modal h1 i{
+			position: absolute;
+			left:0;
+		}
+		.modal-box h2{
+			font-weight:lighter;
+			font-size:28px;
+		}
+		.modal-box i.fas.fa-times{
+			position: absolute;
+			right: 30px;
+			top: 30px;
+			font-size: 40px;
+			opacity: 0.6;
+			cursor: pointer;
+			color: #dc3545;
+			transition: 0.2s;
+		}
+		.modal-box i.fas.fa-times:hover{
+			transform: rotate(90deg) scale(1.05);
+		}
+		.modal-box i.fas.fa-times:active{
+			transform: scale(0.9);
+			opacity: 0.6;
+		}
+		.modal-box h2 i{
+			color:#5cbcf2;
+		}
+			.modal-box.search-bar-modal i.ti-close{
+				color:#fff !important;
+				opacity: 1;
+			}
+
+		.modal-box ul.tab-for-med-modal{
+			list-style: none;
+			margin:0;
+			padding:0;
+			border-bottom:1px solid #cecece;
+			display:inline-block;
+		}
+			.modal-box ul.tab-for-med-modal li{
+				display:inline-block;
+				margin:0 10px;
+				padding:10px;
+				font-size:16px;
+				height:20px;
+				cursor:pointer;
+				box-sizing: content-box;
+			}
+			.modal-box ul.tab-for-med-modal li.active{
+				border-bottom:4px solid #00b0f1;
+			}
+			.modal-box ul.tab-for-med-modal li.active i{
+				color:#00b0f1;
+			}
+				.modal-box ul.tab-for-med-modal li i{
+					color:#75798B;
+				}
+
+		.modal-box .tab{
+			min-height:130px;
+			width:100%;
+			margin:20px 0;
+			display:none;
+		}
+		.modal-box .tab .d-flex{
+			display: flex;
+		}
+		.modal-box .tab.active{
+			display:block;
+		}
+		.modal-box .tab .image{
+			text-align: center;
+			width:35%;
+		}
+			.modal-box .tab .image img.profile{
+				height:150px;
+				width:150px;
+				object-fit: cover;
+				object-position: center;
+				margin:10px auto;
+				display:block;
+				border-radius: 150px;
+				border:10px solid #ddd;
+				box-shadow:0 30px 20px -20px #a6a6a6;
+			}
+
+			.modal-box .tab input[type="file"]{
+				display: none;
+			}
+
+			.first-section{
+				margin:30px 0 0;
+				width:40%;
+				box-sizing: border-box;
+				padding:0 20px;
+			}
+				.first-section i{
+					color:#a6a6a6;
+				}
+				.first-section h2, .first-section h1, .first-section h3{
+					font-weight:lighter;
+					margin:0;
+					width:100%;
+				}
+			.second-section{
+				margin:30px 0 0;
+				width:40%;
+			}
+				.second-section i{
+					color:#a6a6a6;
+				}
+				.second-section h2, .second-section h3{
+					font-weight:lighter;
+					margin:0;
+					width:100%;
+				}
+			.lighter{
+				font-weight: lighter;
+			}
+		.modal-box .edit{
+			margin:0 50px;
+			width:60%;
+		}
+			.modal-box .edit.add-account{
+				margin:0;
+			}
+		.modal-box .edit.batch-edit{
+			width:100%;
+		}
+
+		/*HAVE THE DEPENDENCY IN THE STYLE.CSS FILE*/
+		/*status btn in modal*/
+		.modal-box button.status-btn{ 
+			font-size: 14px;
+			border:none;
+		}
+		.modal-box button.status-btn.Not-Paid{
+			box-shadow: 0 0 0 2px #ff4a62;
+		}
+		.modal-box button.status-btn.Paid{
+			box-shadow: 0 0 0 2px #4aafff;
+		}
+		.modal-box button.status-btn.Balanced{
+			box-shadow: 0 0 0 2px #6b5f00;
+		}
+		/*end of status btn in modal*/
+	
+	.input-box{
+		width:100%;
+		min-height: 30px;
+		display:flex;
+		margin:10px 0;
+		transform-style: preserve-3d;
+	}
+	.input-box.dir-col{
+		flex-flow: column wrap;
+	}
+		.input-box label:not(#toggle-status){
+			flex:1;
+			padding:10px;
+			text-transform: uppercase;
+			font-size:14px;
+			color:#a6a6a6;
+		}
+		.price-tbl .input-box input{
+			width:80px;
+		}
+
+		.modal-box input:not(.checkbox-o),
+		.modal-box select,
+		.modal-box textarea{
+			display: block;
+			width: 100%;
+			height:40px;
+			border:1px solid #ddd;
+			text-align:center;
+			color:#95798b;
+			font-size:14px;
+			cursor: pointer;
+			border-radius: 5px;
+			transform: translateZ(10px);
+			outline: none;
+			transition: 0.2s;
+		}
+		.input-box select{
+			height: 43px;
+		}
+		.modal-box textarea{
+			height: 80px;
+		}
+		button{
+			outline: none;
+		}
+		.input-box input:focus,
+		.input-box select:focus,
+		.input-box textarea:focus{
+			box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+		}
+			.input-box .pesos input{
+				border-radius: 0 5px 5px 0;
+			}
+			.input-box .pesos.pcs input,
+			.input-box .pesos.pcs select{
+				border-radius: 5px 0 0 5px;
+			}
+
+			/*design for displaying of cheque*/
+			.cheque{
+				display: none;
+				flex-direction: column;
+			}
+			.input-box select option{
+				text-align: center;
+			}
+
+		.input-box .pesos{
+			flex:2;
+			display:flex;
+		}
+			.input-box .pesos span{
+				border: 1px solid #ddd;
+				background: #e6e6e6;
+				min-width: 42px;
+				height: 42px;
+				line-height: 42px;
+				text-align: center;
+			}
+			.input-box .pesos span:nth-child(1){
+				border-radius: 5px 0 0 5px;
+			}
+
+			.input-box .pesos span:nth-child(2),
+			.input-box .pesos span:nth-child(3){
+				border-radius: 0 5px 5px 0; 
+			}
+		.input-box input::placeholder{
+			color:#a6a6a6;
+		}
+		input[type="number"]::-webkit-outer-spin-button,
+		input[type="number"]::-webkit-inner-spin-button,
+		input[type="date"]::-webkit-outer-spin-button,
+		input[type="date"]::-webkit-inner-spin-button{
+			-webkit-appearance:none;
+		}
+
+		/*udpated for 10/12/2019*/
+		
+		.input-field{
+			flex: 2;
+		}
+			.error-message {
+				display: block;
+				font-size: 12px !important;
+				color: red !important;
+				text-transform: initial !important;
+				text-align: center;
+			}
+	
+		/*end of updated for 10/12/2019*/
+
+		/*for payment form, in searching of account*/
+	.payment-form {
+		position: absolute;
+		top: 100px;
+		right: 200px;
+		z-index: 1;
+		min-height: 200px;
+		width: 260px;
+		padding: 20px;
+		box-sizing: border-box;
+		border: 1px solid #fff;
+		box-shadow: 0 0 10px #b9b9b9;
+		border-radius: 10px;
+		background: #fff;
+	}
+		.payment-sub-form{
+			display: flex;
+			flex-flow: wrap column;
+		}
+			.payment-sub-form h4{
+				font-weight: lighter;
+			    font-size: 12px;
+			    text-align: center;
+			}
+			.payment-sub-form .input-box{
+				width: 100%;
+			}
+				.payment-sub-form input[type="text"]{
+					height: 40px;
+				    margin: 10px 0;
+				    border-radius: 10px;
+				    border: 1px solid #ddd;
+				    font-size: 14px;
+				}
+			.payment-sub-form button.search-btn-for-account{
+				height: 40px;
+				width: 100%;
+				margin:10px 0;
+				border:none;
+				border-radius: 10px;
+				color: #fff;
+				background: #03A9F4;
+				transition: 0.2s;
+				cursor: pointer;
+			}
+			.payment-sub-form button.search-btn-for-account:active{
+				transform: scale(0.98);
+			}
+
+		.search-results{
+			position: absolute;
+			top: 130px;
+			min-width: 75%;
+			min-height: 20px;
+			background: #fff;
+			border: 1px solid #ddd;
+			padding: 10px;
+		}
+			.search-results h2{
+				font-size: 14px;
+				text-align: center;
+				font-weight: lighter;
+				margin:15px 0;
+				transition: 0.2s;
+			}
+			.search-results h2:active{
+				transform: scale(.98);
+			}
+
+			/*close button*/
+			.payment-form span{
+				position: absolute;
+				top: -25px;
+				right: -25px;
+				display: block;
+				padding: 20px;
+				border-radius: 50%;
+				box-shadow: 0 0 10px #a2a2a2;
+				background: #fff;
+			}
+				.payment-form span i{
+					color:red;
+				}
+			/*end of close button*/
+
+/*end of for searching of account, in payment form*/
+		
+
+/*end for the updated modal*/
+
+/*design for using modal of adding new medicine, actually this is the design for picking of image*/
+.image ul{
+	list-style-type: none;
+	width:100%;
+	padding:0;
+	margin:10px 0;
+	display:flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+	 .choose-img{
+	 	height:50px;
+	 	width:50px;
+	 	cursor:pointer;
+	 	transition:0.2s;
+	 	border-radius: 50px;
+	 	object-fit: cover;
+	 	object-position: center;
+	 	border:2px solid lightblue;
+	 	box-sizing:border-box;
+	 	margin:2px;
+	 }
+	 .image ul li img.choose-img:active{
+	 	transform: scale(0.9);
+	 }
+.image span{
+	font-size:12px;
+}
+/*end of design for using modal of adding new medicine, actually this is the design for picking of image*/
+
+/*this modal is for on air notification badge*/
+
+.notify{
+	position: fixed;
+	top:30px;
+	right:30px;
+	min-height:50px;
+	min-width:280px;
+	box-shadow: 0 0 10px #ddd;
+	box-sizing: border-box;
+	padding:10px;
+	display: flex;
+	cursor: pointer;
+	border:4px solid #59c3e3;
+	border-radius: 10px;
+	opacity: 0;
+	z-index: -10;
+}
+	.notify .opacityBackground{
+		position: absolute;
+		z-index: -1;
+		top:0;
+		left:0;
+		height:100%;
+		width:100%;
+		background:#59c3e3;
+		opacity: 0.8;
+	}
+.notify.delete{
+	border:4px solid #ff8d8d;
+}
+	.notify.delete .opacityBackground{
+		background:#ff8d8d;
+		opacity: 0.8;
+	}
+		.notify i{
+			font-size:2em;
+			line-height: 60px;
+			color:#fff;
+		}
+		.notify .name{
+			flex:1;
+			padding:10px;
+			box-sizing:border-box;
+		}
+			.notify .name h2,
+			.notify .name h4{
+				margin:0;
+				font-weight:lighter;
+				color:#fff;
+			}
+			.notify .name h5{
+				margin:10px 0;
+				font-size:14px;
+				font-weight:lighter;
+				color:#fff;
+			}
+		.notify.active{
+			animation:open 0.4s;
+			z-index: 1;
+			opacity: 1;
+		}
+		.notify.out{
+			animation:close 0.4s;
+			z-index: 1;
+		}
+		@keyframes open{ from{opacity: 0;} to{opacity: 1;} }
+		@keyframes close{ from{opacity: 1;} to{opacity: 0;} }
+/*end of notification for badge, on air*/
+
+
+/*custom toggle button created by w3schools*/
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .1s;
+  transition: .1s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .1s;
+  transition: .1s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+/*end of custom toggle button create by w3schools*/
+
+@media (max-width: 768px){
+	.bg-for-modal{
+		right: 0;
+	}
+	.modal-box{
+		width:90% !important;
+		padding:25px;
+		display: flex;
+		flex-direction: column;
+	}
+	.first-section,
+	.second-section{
+		width:80%;
+		text-align: center;
+		padding:10px;
+		margin:0;
+	}
+	.modal-box .tab .image{
+		width:100%;
+	}	
+		.modal-box .tab.active .d-flex{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		.modal-box .edit{
+			width:75%;
+			margin:10px 0;
+		}
+}
+@media (max-width: 690px){
+
+	.modal-box{
+		width:95%;
+		padding:20px;
+	}
+
+	.modal-box.edit-batch-modal{
+		width:95%;
+	}
+	.modal-box.add-account-modal,
+	.modal-box.edit-account-modal{
+		width:95%;
+	}
+	.modal-box.search-bar-modal{
+		width: 280px;
+		height:80px;
+		padding:20px;
+	}
+
+		.modal-box.search-bar-modal input{
+			font-size:16px;
+		}
+		.modal-box i.ti-close{
+			right:20px;
+			top:20px;
+			font-size: 24px;
+		}
+		.modal-box h2{
+			font-size:20px;
+		}
+		.modal-box i ~ h2{
+			text-align: center;
+			margin:30px 0 20px;
+		}
+		.modal-box h2 i{
+			color:#5cbcf2;
+		}
+	.modal-box ul.tab-for-med-modal{
+		display:flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.modal-box ul.tab-for-med-modal li{
+		font-size: 14px;
+	}
+		.modal-box .tab.active .d-flex{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		.modal-box .edit{
+			width:100%;
+			margin:10px 0;
+		}
+			.first-section, .second-section{
+				width:100%;
+				text-align: center;
+				padding:0;
+			}
+			.modal-box .input-box.display-m{
+				display: flex;
+				flex-direction: column;
+				height:80px;
+			}
+			.modal-box .input-box{
+				flex-direction: column;
+   	 			min-height: 80px;
+			}
+	.notify{
+		position: fixed;
+		top:30px;
+		left:50%;
+		transform:translateX(-50%);
+	}
+}
+
+@media (max-width: 320px){
+	.account-profile{
+		position: absolute;
+		left:10px;
+		right:10px;
+		min-width: initial;
+	}
+	.modal-box{
+		width:96% !important;
+		padding:20px 10px;
+	}
+}

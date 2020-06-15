@@ -1,0 +1,224 @@
+
+.access-btns{
+      margin: 10px auto;
+      flex-wrap: wrap;
+    }
+      .search-bar{
+        height:50px;
+      }
+      .add-btn {
+        /*height:50px;*/
+        /*min-width:50px;*/
+        margin:10px auto;
+      }
+      .add-btn span{
+        /*display: none;*/
+        font-size:10px;
+      }
+      .filter-btn{
+        /*height:50px;*/
+        /*min-width:50px;*/
+        margin:10px auto;       
+      }
+      .filter-btn span{
+        /*display: none;*/
+        font-size:10px;
+      }
+
+/*design for table in creating of order*/
+        .td-qty{
+          display: flex;
+          align-items: center;
+          margin:0 auto;
+        }
+        .td-qty button{
+          height: 30px;
+          border:2px solid lightblue;
+          background:#fff;
+          border-radius: 30px;
+          transition:0.4s;
+          cursor:pointer;
+          outline:none;
+        }
+        .td-qty button:active{
+          transform:scale(0.95);
+          background:#cff3ff;
+        }
+        .td-qty button i{
+          color:lightblue;
+        }
+        .td-qty input{
+          width:60px;
+          height: 30px;
+          border:2px solid #ddd;
+          text-align: center;
+          color:#75798B;
+          font-size:16px;
+        }
+        .td-qty input[type="number"]::-webkit-outer-spin-button,
+        .td-qty input[type="number"]::-webkit-inner-spin-button{
+          -webkit-appearance:none;
+        }
+
+/*end of design for another list card*/
+
+/*create order new design in mobile*/
+.d-flex{
+  display: flex;
+}
+.ai-center{
+  align-items: center;
+}
+.wrap{
+  flex-wrap: wrap;
+}
+.d-col{
+  flex-direction: column;
+}
+.fs-12{
+  font-size: 12px;
+}
+.list{
+  display: flex;
+  width: 100%;
+  flex-flow: row wrap;
+}
+
+  .m-nav-bar{
+    position:relative;
+    left:0;
+    bottom:0;
+    height:80px;
+    width:100%;
+    background:#fff;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 10px #b6b6b6;
+  }
+  .m-nav-bar ul{
+    width:100%;
+    display: flex;
+    align-content:center;
+    justify-content:space-evenly;
+    list-style-type:none;
+    padding:0;
+  }
+  .m-nav-bar ul li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .m-nav-bar ul li i{
+    font-size:24px;
+    margin:5px 0;
+  }
+  .m-nav-bar ul li.active i{
+    color:#00b0f1;
+  }
+  .m-nav-bar ul li i ~ span{
+    font-size:12px;
+    margin:5px 0;
+  }
+  .m-send-order-btn{
+    position:absolute;
+    top:-20px;
+    height:90px;
+    width:90px;
+    border-radius: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    box-shadow:0 0 10px #b9b9b9;
+    transition:0.2s;
+    border:2px solid lightblue;
+  }
+  .m-send-order-btn:active{
+    transform:scale(0.98) translateY(2px);
+    background:#c3f0ff;
+  }
+  .m-send-order-btn i.far{
+    color:#00b0f1;
+    opacity:0.6;
+  }
+
+  @media only screen and (max-width: 1024px){
+    .m-nav-bar{
+      position:fixed;
+      z-index: 200;
+    }
+    .footer.create-order-footer{
+      margin-bottom:80px;
+    }
+  }
+
+
+  @media only screen and (max-width: 425px){
+    .card{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .name-section{
+      margin:0;
+      flex-basis: 10px;
+    }
+      .card div:not(.name-section){
+        margin:10px 0;
+        align-self: center;
+      }
+
+    .m-nav-bar ul li i{
+      font-size:18px !important;
+      margin:5px 0;
+    }
+    .m-nav-bar ul li.active i{
+      color:#00b0f1;
+    }
+    .m-nav-bar ul li i ~ span{
+      font-size:12px;
+      margin:5px 0;
+    }
+
+    .m-send-order-btn{
+      height:70px;
+      width:70px;
+      border-radius: 70px;
+      top:-10px;
+    }
+  }
+
+/*end of create order new design in mobile*/
+
+
+.error{
+        display: none;
+        width: 100%;
+        margin:10px auto;
+        padding: 15px 20px;
+        box-sizing: border-box;
+        text-align: center;
+        border: 2px solid #f5c6cb;
+        background: #f8d7da;
+        color: #721c24;
+        border-radius: .25rem;
+        font-size:14px;
+      }
+      .error.create-order-error{
+        width:90%;
+      }
+      .error ul{
+        padding:0;
+      }
+        .error ul li{
+          margin:10px 0;
+        }
+      span.stat-clr{
+        display: inline-block !important;
+        height:10px !important;;
+        width:10px !important;
+        border-radius: 10px;
+        background:lightgreen;
+        padding:0 !important;
+      }
